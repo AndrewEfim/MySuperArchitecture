@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.andreii.mysuperarchitecture.presentation.screen.user.UserProfileViewModel"
+            />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#111111"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="250dp"
+            android:layout_height="500dp"
+            android:background="#111111"
+            android:gravity="center"
+
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutUserInfoContent"
+                android:layout_width="200dp"
+                android:layout_height="350dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="25dp"
+                android:background="@{viewModel.genderColor}"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewUserName"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center|start"
+                    android:text="@{viewModel.userName}"
+                    android:textColor="#ece007"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewUserSurName"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center|start"
+                    android:text="@{viewModel.userSurName}"
+                    android:textColor="#ece007"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textViewUserAge"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center|start"
+                    android:text="@{viewModel.userAge}"
+                    android:textColor="#ece007"
+                    android:textSize="20sp" />
+                <EditText
+                    android:id="@+id/edittextUserGender"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="top"
+                    android:layout_marginLeft="25dp"
+                    android:gravity="center|start"
+                    android:text="@={viewModel.userGender}"
+                    android:textColor="#ece007"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageViewUserPhoto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                app:url="@{viewModel.userImageUrl}"
+                tools:ignore="NotSibling" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/changeButton1"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:text="ChangeUser"
+            android:onClick="@{viewModel::changeId}"
+
+
+
+            />
+    </LinearLayout>
+
+</layout>
